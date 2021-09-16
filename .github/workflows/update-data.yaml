@@ -1,0 +1,45 @@
+#  Controls when the action will run.
+#  “At 00:00 on every day-of-week from Monday through Friday.”
+#  https://crontab.guru/
+#  On push for testin purpose
+on:
+  schedule:
+    - cron:  '0 0 * * 1-5'
+
+name: update-data
+
+jobs: 
+  update-data:
+    runs-on: macos-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@master
+    
+    - uses: r-lib/actions/setup-r@master
+      with:
+          use-public-rspm: true
+
+    # Set-up R
+    - name: Install packages from renv
+      run:  |
+        R -e 'install.packages("renv")'
+        R -e 'library(renv)'
+        R -e 'restore()'
+        
+# Run pipeline
+    - name: Run Pipeline
+      run: Rscript main.R
+
+    # Commit new files
+    - name: Commit files
+      run: |
+        git config --local user.name github-actions
+        git config --local user.email "actions@github.com"
+        git fetch origin main
+        git add data/*
+        git commit -am "GH ACTION Autorun $(date)"
+        git push origin main
+      env:
+        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
+        username: github-actions

@@ -1,0 +1,11 @@
+library(rvest, warn.conflicts = F, quietly = T)
+library(stringr, warn.conflicts = F, quietly = T)
+library(httr, warn.conflicts = F, quietly = T)
+library(glue, warn.conflicts = F, quietly = T)
+library(here, warn.conflicts = F, quietly = T)
+library(readr, warn.conflicts = F, quietly = T)
+library(tidyr, warn.conflicts = F, quietly = T)
+library(dplyr, warn.conflicts = F, quietly = T)
+library(purrr, warn.conflicts = F, quietly = T)
+library(pins, warn.conflicts = F, quietly = T)
+
