@@ -25,3 +25,11 @@ jobs:
       - name: Lint root directory
         run: lintr::lint_dir(exclusions = "renv")
         shell: Rscript {0}
+      
+      - name: Install Styler
+        run: install.packages("styler")
+        shell: Rscript {0}
+      
+      - name: Style root directory
+        run: styler::style_dir(exclude_files = ".Rprofile")
+        shell: Rscript {0}
