@@ -1,10 +1,10 @@
 #  Controls when the action will run.
-#  “At 00:00 on every day-of-week from Monday through Friday.”
+#  “At 20:00 on Saturday.”
 #  https://crontab.guru/
 #  On push for testin purpose
 on:
   schedule:
-    - cron:  '0 0 * * 1-5'
+    - cron:  '0 20 * * SAT'
 
 name: update-data
 
@@ -28,18 +28,6 @@ jobs:
         R -e 'restore()'
         
 # Run pipeline
-    - name: Run Pipeline
+    - name: Scrape and Clean and Write
       run: Rscript main.R
-
-    # Commit new files
-    - name: Commit files
-      run: |
-        git config --local user.name github-actions
-        git config --local user.email "actions@github.com"
-        git fetch origin main
-        git add data/*
-        git commit -am "GH ACTION Autorun $(date)"
-        git push origin main
-      env:
-        REPO_KEY: ${{secrets.GITHUB_TOKEN}}
-        username: github-actions
+      
