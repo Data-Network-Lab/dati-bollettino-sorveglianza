@@ -16,3 +16,9 @@
   cols: 3
   description: pin decessi data
   type: table
+- path: data/ricoveri_data
+  name: data/ricoveri_data
+  rows: 117559
+  cols: 3
+  description: pin ricoveri data
+  type: table

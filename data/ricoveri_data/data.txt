@@ -1,0 +1,14 @@
+path:
+- data.csv
+- data.rds
+rows: 117559
+cols: 3
+columns:
+  iss_date: character
+  DATARICOVERO1: character
+  RICOVERI: character
+description: pin ricoveri data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds
