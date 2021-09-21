@@ -10,3 +10,9 @@
   cols: 5
   description: pin stato_clinico data
   type: table
+- path: data/decessi_data
+  name: data/decessi_data
+  rows: 116967
+  cols: 3
+  description: pin decessi data
+  type: table
