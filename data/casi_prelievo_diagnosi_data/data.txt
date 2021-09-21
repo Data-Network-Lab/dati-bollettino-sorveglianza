@@ -1,0 +1,15 @@
+path:
+- data.csv
+- data.rds
+rows: 118082
+cols: 4
+columns:
+  iss_date: character
+  DATA_PRELIEVO_DIAGNOSI: character
+  CASI: character
+  '...4': numeric
+description: pin casi_prelievo_diagnosi data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds

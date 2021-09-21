@@ -46,3 +46,9 @@
   cols: 3
   description: pin casi_inizio_sintomi data
   type: table
+- path: data/casi_prelievo_diagnosi_data
+  name: data/casi_prelievo_diagnosi_data
+  rows: 118082
+  cols: 4
+  description: pin casi_prelievo_diagnosi data
+  type: table
