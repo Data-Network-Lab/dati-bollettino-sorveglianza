@@ -13,24 +13,32 @@ jobs:
     runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-    - uses: actions/checkout@master
+      RENV_PATHS_ROOT: ~/Library/Application Support/renv
     
-    - uses: r-lib/actions/setup-r@master
+      
+    steps:
+    
+    - name: Cache packages
+      uses: actions/cache@v1
       with:
-          use-public-rspm: true
-
-    - name: Install packages from renv
-      run:  |
-        R -e 'install.packages("renv")'
-        R -e 'library(renv)'
-        R -e 'restore()'
-        
+        path: ${{ env.RENV_PATHS_ROOT }}
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+          
+    - name: Restore packages
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
+    
+# - uses: actions/checkout@master
+# - uses: r-lib/actions/setup-r@master
         
     - name: Download data from source
       run: Rscript dowload_data.R
         
 # Run pipeline
-    - name: Scrape and Clean and Write
+    - name: Group and Pin
       run: Rscript main.R
       
