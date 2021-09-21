@@ -1,0 +1,16 @@
+path:
+- data.csv
+- data.rds
+rows: 27787
+cols: 5
+columns:
+  iss_date: character
+  SESSO: character
+  AGE_GROUP: character
+  STATO_CLINICO: character
+  CASI: character
+description: pin stato_clinico data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds
