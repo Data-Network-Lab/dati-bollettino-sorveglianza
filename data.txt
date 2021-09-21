@@ -28,3 +28,9 @@
   cols: 4
   description: pin casi_provincie data
   type: table
+- path: data/casi_regioni_data
+  name: data/casi_regioni_data
+  rows: 5502
+  cols: 3
+  description: pin casi_regioni data
+  type: table

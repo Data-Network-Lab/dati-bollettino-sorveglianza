@@ -1,0 +1,14 @@
+path:
+- data.csv
+- data.rds
+rows: 5502
+cols: 3
+columns:
+  iss_date: character
+  NOME_NUTS2: character
+  CASI_CUMULATIVI: character
+description: pin casi_regioni data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds
