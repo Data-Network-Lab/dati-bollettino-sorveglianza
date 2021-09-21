@@ -1,0 +1,6 @@
+- path: data/sesso_eta_data
+  name: data/sesso_eta_data
+  rows: 7336
+  cols: 5
+  description: pin sesso_eta data
+  type: table

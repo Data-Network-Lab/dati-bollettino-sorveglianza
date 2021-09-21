@@ -1,0 +1,16 @@
+path:
+- data.csv
+- data.rds
+rows: 7336
+cols: 5
+columns:
+  iss_date: character
+  SESSO: character
+  AGE_GROUP: character
+  DECEDUTI: character
+  CASI_CUMULATIVI: character
+description: pin sesso_eta data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds
