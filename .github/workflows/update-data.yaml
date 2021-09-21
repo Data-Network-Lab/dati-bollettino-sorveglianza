@@ -4,7 +4,7 @@
 #  On push for testin purpose
 on:
   schedule:
-    - cron:  '0 20 * * SAT'
+    - cron:  '0 13 * * SAT'
 
 name: update-data
 
@@ -20,12 +20,15 @@ jobs:
       with:
           use-public-rspm: true
 
-    # Set-up R
     - name: Install packages from renv
       run:  |
         R -e 'install.packages("renv")'
         R -e 'library(renv)'
         R -e 'restore()'
+        
+        
+    - name: Download data from source
+      run: Rscript dowload_data.R
         
 # Run pipeline
     - name: Scrape and Clean and Write
