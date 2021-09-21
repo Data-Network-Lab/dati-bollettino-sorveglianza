@@ -34,3 +34,9 @@
   cols: 3
   description: pin casi_regioni data
   type: table
+- path: data/casi_inizio_sintomi_sint_data
+  name: data/casi_inizio_sintomi_sint_data
+  rows: 123560
+  cols: 3
+  description: pin casi_inizio_sintomi_sint data
+  type: table

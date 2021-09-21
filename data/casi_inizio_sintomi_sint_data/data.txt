@@ -1,0 +1,14 @@
+path:
+- data.csv
+- data.rds
+rows: 123560
+cols: 3
+columns:
+  iss_date: character
+  DATA_INIZIO_SINTOMI: character
+  CASI_SINT: character
+description: pin casi_inizio_sintomi_sint data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds
