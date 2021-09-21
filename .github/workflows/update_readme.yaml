@@ -1,0 +1,34 @@
+on:
+  push:
+    paths:
+      - - 'data/data-raw/**'
+
+name: render-readme
+
+jobs:
+  render-readme:
+    runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        uses: r-lib/actions/setup-pandoc@v1
+        uses: r-lib/actions/setup-r@v1
+        
+      - name: install required packages
+        run: Rscript -e 'install.packages(c("rmarkdown", "here", "knitr"))'
+
+      - name: Render readme files
+        run: |
+          R -e 'rmarkdown::render("README.Rmd", output_format = "md_document")'
+          
+      - name: Commit readme
+        run: |
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add README.md
+          git commit -m "Re-build README.md" || echo "No styles to commit"
+          git push origin master|| echo "No styles to commit"
