@@ -1,0 +1,15 @@
+path:
+- data.csv
+- data.rds
+rows: 28296
+cols: 4
+columns:
+  iss_date: character
+  COD_PROV: numeric
+  PROV_names: character
+  CASI_CUMULATIVI: character
+description: pin casi_provincie data
+type: table
+filenames:
+  data.csv: data.csv
+  data.rds: data.rds

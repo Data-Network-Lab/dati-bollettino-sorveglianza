@@ -22,3 +22,9 @@
   cols: 3
   description: pin ricoveri data
   type: table
+- path: data/casi_provincie_data
+  name: data/casi_provincie_data
+  rows: 28296
+  cols: 4
+  description: pin casi_provincie data
+  type: table
