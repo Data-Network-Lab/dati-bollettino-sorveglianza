@@ -1,4 +1,3 @@
-library(rvest, warn.conflicts = F, quietly = T)
 library(stringr, warn.conflicts = F, quietly = T)
 library(httr, warn.conflicts = F, quietly = T)
 library(glue, warn.conflicts = F, quietly = T)
@@ -44,6 +43,7 @@ read_table_excel <- function(path, sheet) {
 ## - add a mapper function
 
 sesso_eta <- map_dfr(paths, read_table_excel, sheet = "sesso_eta") %>% pin(name = "data/sesso_eta_data", description = "pin sesso_eta data", board = "github")
+
 stato_clinico <- map_dfr(paths, read_table_excel, sheet = "stato_clinico") %>% pin(name = "data/stato_clinico_data", description = "pin stato_clinico data", board = "github")
 decessi <- map_dfr(paths, read_table_excel, sheet = "decessi") %>% pin(name = "data/decessi_data", description = "pin decessi data", board = "github")
 ricoveri <- map_dfr(paths, read_table_excel, sheet = "ricoveri") %>% pin(name = "data/ricoveri_data", description = "pin ricoveri data", board = "github")
