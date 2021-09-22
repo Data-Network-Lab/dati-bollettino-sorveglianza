@@ -30,8 +30,12 @@ knitr::knit_hooks$set(imgcenter = function(before, options, envir){
 
 ## libs
 library(knitr, warn.conflicts = F, quietly = T)
+library(fs, warn.conflicts = F, quietly = T)
+library(gt, warn.conflicts = F, quietly = T)
+library(dplyr, warn.conflicts = F, quietly = T)
+library(stringr, warn.conflicts = F, quietly = T)
 library(here, warn.conflicts = F, quietly = T)
-library(magrittr, warn.conflicts = F, quietly = T)
+library(webshot)
 
 
 ```
@@ -119,11 +123,43 @@ Some examples of reports:
 ```{r TableData, echo=F}
 ## scrivi un .rds con tutti i risultati dei dati e qui leggilo
 
+df = dir_info("data", recurse = T) %>% 
+  filter(!str_detect(path, "data/data-raw") & !str_detect(path, "data/OPENDATA")) %>% 
+  select(path, type, size, modification_time, birth_time) %>% 
+  mutate(type_per_dir = case_when(
+    str_detect(path, "sesso_eta" ) ~ "data/sesso_eta_data",
+    str_detect(path, "stato_clinico" ) ~ "data/stato_clinico_data",
+    str_detect(path, "ricoveri_data/" ) ~ "data/ricoveri_data",
+    str_detect(path, "decessi" ) ~ "data/decessi_data",
+    str_detect(path, "casi_regioni" ) ~ "data/casi_regioni_data",
+    str_detect(path, "casi_provincie" ) ~ "data/casi_provincie_data",
+    str_detect(path, "casi_prelievo_diagnosi" ) ~ "data/casi_prelievo_diagnosi_data",
+    str_detect(path, "casi_inizio_sintomi_sint" ) ~ "data/casi_inizio_sintomi_sint_data",
+    TRUE ~ "data/casi_inizio_sintomi_data"
+  ))
 
-list.files(here("data", "OPENDATA"), full.names = T) %>% 
-  kable(format = "markdown")
+df %>% 
+  group_by(type_per_dir) %>% 
+  filter(!type == "directory") %>% 
+  arrange(path) %>% 
+  gt() %>% 
+  tab_header(
+    title = md("**ISS** dati disaggregati _bollettino Sorveglianza Integrata_"),
+    subtitle = md(paste("aggiornati al", format(Sys.Date(), format="%B %d %Y")))
+  )  %>% 
+  tab_spanner(
+    label = "File Info",
+    columns = type:birth_time
+  ) %>% 
+  tab_source_note(
+    source_note = md("Source: [ISS Epicentro](https://www.epicentro.iss.it/coronavirus/) bollettino sorveglianza integrata")
+  ) %>% 
+  gtsave(filename = here("img","glimpse_table.png"))
 
 ```
+
+![gt_table](img/glimpse_table.png)
+
 
 ## Installation
 
