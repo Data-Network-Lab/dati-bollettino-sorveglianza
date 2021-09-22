@@ -77,11 +77,11 @@ Here there is the overview of the topics covered within this repo:
 
 <!-- Describe your project in brief -->
 
-This project has the aim to **open source** data contained in tables
-reported by the **ISS** spin off:
+This project has the aim to **open source** data contained in the **ISS** spin off:
 [EPICENTRO](https://www.epicentro.iss.it/) (epidemiologia per la sanità
 pubblica) in their weekly integrated COVID-19 surveillance bullettin (in
-Italy). This bullettin is a product of **ISS** (Istituto Superiore di
+Italy). Data comes daily in a .xlsx format, divided by sheets making weekly and monthly checks a little bit hard to digest for non practioners.
+This bullettin is a product of **ISS** (Istituto Superiore di
 Sanità) and it reports data infection cases throughout Italy in
 compliance with the Order: *Ordinanza n. 640 del 27 febbraio 2020*. ISS
 gathers data from a centralized and dedicated web application regarding
@@ -120,7 +120,7 @@ Some examples of reports:
 ## scrivi un .rds con tutti i risultati dei dati e qui leggilo
 
 
-list.files(here("data", "data-raw"), full.names = T) %>% 
+list.files(here("data", "OPENDATA"), full.names = T) %>% 
   kable(format = "markdown")
 
 ```
@@ -162,9 +162,9 @@ to their declared versions.
 
 The pipeline is articulated in **3 phases**:
 
--   mine data from [source](https://www.epicentro.iss.it/coronavirus/open-data/OPENDATA-2021.zip) & unzip files in `..\data-raw\*`
+-   mine data from [source](https://www.epicentro.iss.it/coronavirus/open-data/OPENDATA-2021.zip) & unzip files in `..\OPENDATA\*`
 -   parse .xlsx and group historical data per sheets. In the end reproduce visualizations in [ISS reports](https://www.epicentro.iss.it/coronavirus/bollettino/Bollettino-sorveglianza-integrata-COVID-19_23-giugno-2021.pdf)
--   `pins` data in `..\table_data\*`
+-   `pins` data in `..data\archibve_sheet_data\*`
 
 ![workflow](img/data_mining_design.png)
 
