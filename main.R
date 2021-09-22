@@ -52,7 +52,3 @@ casi_regioni <- map_dfr(paths, read_table_excel, sheet = "casi_regioni") %>% pin
 casi_inizio_sintomi_sint <- map_dfr(paths, read_table_excel, sheet = "casi_inizio_sintomi_sint") %>% pin(name = "data/casi_inizio_sintomi_sint_data", description = "pin casi_inizio_sintomi_sint data", board = "github")
 casi_inizio_sintomi <- map_dfr(paths, read_table_excel, sheet = "casi_inizio_sintomi") %>% pin(name = "data/casi_inizio_sintomi_data", description = "pin casi_inizio_sintomi data", board = "github")
 casi_prelievo_diagnosi <- map_dfr(paths, read_table_excel, sheet = "casi_prelievo_diagnosi") %>% pin(name = "data/casi_prelievo_diagnosi_data", description = "pin casi_prelievo_diagnosi data", board = "github")
-
-
-
-
