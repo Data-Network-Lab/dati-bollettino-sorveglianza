@@ -20,7 +20,7 @@ jobs:
 
       - name: Style files
         run:  |
-          R -e 'styler::style_file(c("main.R", "download_data.R"))'
+          R -e 'styler::style_file(c("main.R", "download_data.R", "iss_report_tables_and_graph_data.R"))'
       - name: commit styled files
         run: |
           git config --local user.email "actions@github.com"
