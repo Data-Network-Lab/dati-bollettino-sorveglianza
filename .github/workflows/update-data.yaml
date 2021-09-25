@@ -24,10 +24,9 @@ jobs:
   with:
     cache-version: 2
         
-    - name: Download data from source
-      run: Rscript dowload_data.R
+      - name: Download data from source
+        run: Rscript dowload_data.R
         
-# Run pipeline
-    - name: Group and Pin
-      run: Rscript main.R
+      - name: Group and Pin
+        run: Rscript main.R
       
