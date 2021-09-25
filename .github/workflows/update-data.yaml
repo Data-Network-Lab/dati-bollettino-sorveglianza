@@ -3,8 +3,10 @@
 #  https://crontab.guru/
 #  On push for testin purpose
 on:
-  schedule:
-    - cron:  '0 13 * * SAT'
+  push:
+    branches: master
+  # schedule:
+  #   - cron:  '0 13 * * SAT'
 
 name: update-data
 
@@ -13,27 +15,14 @@ jobs:
     runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RENV_PATHS_ROOT: ~/Library/Application Support/renv
     
       
     steps:
-    
-    - name: Cache packages
-      uses: actions/cache@v1
-      with:
-        path: ${{ env.RENV_PATHS_ROOT }}
-        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-renv-
-          
-    - name: Restore packages
-      shell: Rscript {0}
-      run: |
-        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-        renv::restore()
-    
-# - uses: actions/checkout@master
-# - uses: r-lib/actions/setup-r@master
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@v1
+    - uses: r-lib/actions/setup-renv@v1
+  with:
+    cache-version: 2
         
     - name: Download data from source
       run: Rscript dowload_data.R
