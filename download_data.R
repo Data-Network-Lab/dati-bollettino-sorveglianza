@@ -4,6 +4,8 @@
 ##### download #####
 ####################
 
+library(here)
+
 zip_folder <- "https://www.epicentro.iss.it/coronavirus/open-data/OPENDATA-2021.zip"
 
 temp <- tempfile()
