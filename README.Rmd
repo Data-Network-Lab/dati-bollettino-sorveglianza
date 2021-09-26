@@ -50,7 +50,7 @@ library(webshot)
 
 <!-- GH action badge -->
 
-[![update-data](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml/badge.svg?branch=master&event=schedule)](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml)
+[![update-data](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml/badge.svg)](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml)
 
 ![GitHub last
 commit](https://img.shields.io/github/last-commit/Data-Network-Lab/dati-bollettino-sorveglianza?style=plastic)
