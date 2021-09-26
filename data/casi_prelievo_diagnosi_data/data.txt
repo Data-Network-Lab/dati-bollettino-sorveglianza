@@ -1,7 +1,7 @@
 path:
 - data.csv
 - data.rds
-rows: 118082
+rows: 119839
 cols: 4
 columns:
   iss_date: character
