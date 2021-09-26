@@ -42,7 +42,7 @@
   type: table
 - path: data/casi_inizio_sintomi_data
   name: data/casi_inizio_sintomi_data
-  rows: 123564
+  rows: 125384
   cols: 3
   description: pin casi_inizio_sintomi data
   type: table
