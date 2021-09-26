@@ -6,7 +6,7 @@
   type: table
 - path: data/stato_clinico_data
   name: data/stato_clinico_data
-  rows: 27787
+  rows: 28102
   cols: 5
   description: pin stato_clinico data
   type: table
