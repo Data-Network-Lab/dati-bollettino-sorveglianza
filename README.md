@@ -8,7 +8,7 @@
 
 <!-- GH action badge -->
 
-[![update-data](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml/badge.svg?branch=master&event=schedule)](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml)
+[![update-data](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml/badge.svg)](https://github.com/Data-Network-Lab/dati-bollettino-sorveglianza/actions/workflows/update-data.yaml)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/Data-Network-Lab/dati-bollettino-sorveglianza?style=plastic) ![GitHub issues](https://img.shields.io/github/issues/Data-Network-Lab/dati-bollettino-sorveglianza?style=plastic) [![GitHub forks](https://img.shields.io/github/forks/Data-Network-Lab/dati-bollettino-sorveglianza)](https://github.com/Data-Network-Lab/indicatore_zona_gialla/network) ![GitHub license](https://img.shields.io/github/license/Data-Network-Lab/dati-bollettino-sorveglianza?style=plastic)
 
