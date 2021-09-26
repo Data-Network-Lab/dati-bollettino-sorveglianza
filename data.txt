@@ -18,7 +18,7 @@
   type: table
 - path: data/ricoveri_data
   name: data/ricoveri_data
-  rows: 117559
+  rows: 119310
   cols: 3
   description: pin ricoveri data
   type: table
