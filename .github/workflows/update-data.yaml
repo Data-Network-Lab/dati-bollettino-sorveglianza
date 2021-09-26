@@ -28,7 +28,7 @@ jobs:
         renv::restore()
         
     - name: Download data from source
-      run: Rscript dowload_data.R
+      run: Rscript download_data.R
         
     - name: Group and Pin
       run: Rscript main.R
