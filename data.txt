@@ -12,7 +12,7 @@
   type: table
 - path: data/decessi_data
   name: data/decessi_data
-  rows: 116967
+  rows: 118715
   cols: 3
   description: pin decessi data
   type: table
